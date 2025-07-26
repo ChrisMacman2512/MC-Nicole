@@ -4,6 +4,20 @@
 
 This is a professional website for Nicole Adams, a multilingual emcee and event host based in Bangalore. The application is built as a full-stack web application with a React frontend and Express.js backend, featuring a portfolio showcase, client testimonials, service offerings, and a contact inquiry system.
 
+**GitHub Repository**: https://github.com/ChrisMacman2512/MC-Nicole.git
+
+## Recent Changes
+
+### January 2025
+- ✓ Complete professional portfolio website with all sections implemented
+- ✓ Real YouTube video integration with specific video IDs from Nicole's channel
+- ✓ Client showcase featuring major brands (Samsung, Toyota, Flipkart, Amazon, Infosys, GE Vernova, etc.)
+- ✓ Fully functional contact form with booking inquiry system
+- ✓ Professional styling with champagne/black color scheme matching Nicole's brand
+- ✓ Photo gallery with category filtering functionality
+- ✓ Mobile-responsive design optimized for all devices
+- ✓ GitHub repository setup with comprehensive README and deployment guide
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
