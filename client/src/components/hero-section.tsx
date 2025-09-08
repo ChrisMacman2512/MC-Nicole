@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { Download } from "lucide-react";
 
 export default function HeroSection() {
   const scrollToContact = () => {
@@ -26,22 +26,30 @@ export default function HeroSection() {
             >
               Book Nicole for Your Event
             </button>
-            <div className="flex items-center text-gray-300">
-              <MapPin className="text-champagne mr-2" size={20} />
-              <span>Based in Bangalore</span>
-            </div>
+            <a 
+              href="/Nicole Adams_The Voice of Connection.pdf" 
+              download="Nicole Adams - The Voice of Connection.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/20 transition-all duration-300 text-lg border border-white/20 hover:border-white/40 shadow-lg hover:shadow-xl"
+            >
+              <Download className="mr-2" size={20} />
+              Download Profile
+            </a>
           </div>
         </div>
-        <div className="relative animate-slide-up">
-          <img 
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=800" 
-            alt="Nicole Adams Professional Headshot" 
-            className="rounded-2xl shadow-2xl w-full max-w-md mx-auto" 
-          />
-          <div className="absolute -bottom-6 -right-6 bg-champagne text-black p-4 rounded-xl shadow-lg">
-            <div className="text-center">
-              <div className="font-bold text-2xl">500+</div>
-              <div className="text-sm">Events Hosted</div>
+        <div className="relative">
+          <div className="relative">
+            <img 
+              src="/hero.jpg" 
+              alt="Nicole Adams Professional Headshot" 
+              className="rounded-2xl shadow-2xl w-full max-w-md mx-auto opacity-100" 
+            />
+            <div className="absolute -bottom-6 -right-6 bg-champagne text-black p-4 rounded-xl shadow-lg z-10">
+              <div className="text-center">
+                <div className="font-bold text-2xl">500+</div>
+                <div className="text-sm">Events Hosted</div>
+              </div>
             </div>
           </div>
         </div>

@@ -75,12 +75,12 @@ export default function PhotoGallerySection() {
     : galleryItems.filter(item => item.category === activeFilter);
 
   return (
-    <section id="gallery" className="py-20 bg-off-white">
+    <section id="gallery" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-playfair text-4xl lg:text-5xl font-bold text-black mb-4">Captured Highlights</h2>
+          <h2 className="font-playfair text-4xl lg:text-5xl font-bold text-white mb-4">Captured Highlights</h2>
           <div className="w-24 h-1 bg-champagne mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             A visual journey through Nicole's most memorable events and professional moments.
           </p>
         </div>
@@ -94,7 +94,7 @@ export default function PhotoGallerySection() {
               className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
                 activeFilter === filter.id
                   ? 'bg-champagne text-black'
-                  : 'bg-gray-200 text-charcoal hover:bg-gray-300'
+                  : 'bg-gray-800 text-white hover:bg-gray-700'
               }`}
             >
               {filter.label}
@@ -105,15 +105,15 @@ export default function PhotoGallerySection() {
         {/* Photo Gallery Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredItems.map((item) => (
-            <div key={item.id} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+            <div key={item.id} className="bg-dark-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer border border-dark">
               <img 
                 src={item.image} 
                 alt={item.title} 
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h4 className="font-semibold text-sm">{item.title}</h4>
-                <p className="text-gray-600 text-xs">{item.description}</p>
+                <h4 className="font-semibold text-sm text-white">{item.title}</h4>
+                <p className="text-gray-300 text-xs">{item.description}</p>
               </div>
             </div>
           ))}

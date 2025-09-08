@@ -11,7 +11,7 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <div className="font-inter bg-white text-charcoal">
+    <div className="font-inter bg-black text-light">
       <NavigationHeader />
       <HeroSection />
       <AboutSection />

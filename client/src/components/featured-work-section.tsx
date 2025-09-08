@@ -13,19 +13,13 @@ export default function FeaturedWorkSection() {
   const videos = {
     corporate: [
       {
-        id: 'PP3MYqiYd9g',
-        title: 'Cigna Care-nival',
-        description: 'Corporate carnival event hosting',
-        aspectRatio: 'shorts-aspect'
-      },
-      {
         id: 'fhIz9PFbGY8',
         title: 'GE Vernova Service Awards',
         description: 'Corporate excellence awards ceremony',
         aspectRatio: 'shorts-aspect'
       },
       {
-        id: 'HAwsMI6FG',
+        id: 'HAwsMI6FG_g',
         title: 'Infosys - Awards For Excellence',
         description: 'Technology industry awards event',
         aspectRatio: 'video-aspect'
@@ -88,12 +82,12 @@ export default function FeaturedWorkSection() {
   };
 
   return (
-    <section id="portfolio" className="py-20 bg-off-white">
+    <section id="portfolio" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-playfair text-4xl lg:text-5xl font-bold text-black mb-4">Videos & Featured Work</h2>
+          <h2 className="font-playfair text-4xl lg:text-5xl font-bold text-white mb-4">Videos & Featured Work</h2>
           <div className="w-24 h-1 bg-champagne mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Explore Nicole's professional work across various industries and event types.
           </p>
         </div>
@@ -107,7 +101,7 @@ export default function FeaturedWorkSection() {
               className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
                 activeCategory === category.id
                   ? 'bg-champagne text-black'
-                  : 'bg-gray-200 text-charcoal hover:bg-gray-300'
+                  : 'bg-gray-800 text-white hover:bg-gray-700'
               }`}
             >
               {category.label}
@@ -118,19 +112,19 @@ export default function FeaturedWorkSection() {
         {/* Video Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {videos[activeCategory as keyof typeof videos]?.map((video, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className={`${video.aspectRatio} bg-gray-200`}>
+            <div key={index} className="bg-dark-card rounded-xl shadow-lg overflow-hidden border border-dark h-[500px] flex flex-col">
+              <div className="flex-1 bg-gray-200 relative">
                 <iframe
-                  className="w-full h-full"
+                  className="w-full h-full absolute inset-0"
                   src={`https://www.youtube.com/embed/${video.id}`}
                   title={video.title}
                   frameBorder="0"
                   allowFullScreen
                 ></iframe>
               </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-lg mb-2">{video.title}</h3>
-                <p className="text-gray-600 text-sm">{video.description}</p>
+              <div className="p-4 flex-shrink-0">
+                <h3 className="font-semibold text-lg mb-2 text-white">{video.title}</h3>
+                <p className="text-gray-300 text-sm">{video.description}</p>
               </div>
             </div>
           ))}

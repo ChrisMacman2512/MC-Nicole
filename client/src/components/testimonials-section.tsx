@@ -23,19 +23,19 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-playfair text-4xl lg:text-5xl font-bold text-black mb-4">What Clients Say</h2>
+          <h2 className="font-playfair text-4xl lg:text-5xl font-bold text-white mb-4">What Clients Say</h2>
           <div className="w-24 h-1 bg-champagne mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Hear from clients who have experienced Nicole's exceptional hosting and emcee services.
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl border-l-4 border-champagne">
+            <div key={testimonial.id} className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border-l-4 border-champagne">
               <div className="flex items-center mb-4">
                 <div className="text-champagne flex">
                   {[...Array(5)].map((_, i) => (
@@ -43,12 +43,12 @@ export default function TestimonialsSection() {
                   ))}
                 </div>
               </div>
-              <p className="text-gray-700 mb-4 italic">
+              <p className="text-gray-300 mb-4 italic">
                 "{testimonial.quote}"
               </p>
               <div>
-                <div className="font-semibold">{testimonial.author}</div>
-                <div className="text-sm text-gray-600">{testimonial.position}</div>
+                <div className="font-semibold text-white">{testimonial.author}</div>
+                <div className="text-sm text-gray-400">{testimonial.position}</div>
               </div>
             </div>
           ))}

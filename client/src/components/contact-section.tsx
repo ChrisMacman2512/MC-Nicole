@@ -34,13 +34,43 @@ export default function ContactSection() {
 
   const submitInquiry = useMutation({
     mutationFn: async (data: InsertContactInquiry) => {
-      return apiRequest("POST", "/api/contact", data);
+      // Send inquiry via API - this will handle both email and WhatsApp based on configuration
+      const response = await apiRequest("POST", "/api/contact", data);
+      return response.json();
     },
-    onSuccess: () => {
-      toast({
-        title: "Inquiry Sent!",
-        description: "Thank you for your inquiry! Nicole will get back to you soon.",
-      });
+    onSuccess: (responseData: any) => {
+      if (responseData.method === 'email') {
+        toast({
+          title: "Inquiry Sent Successfully!",
+          description: "Your inquiry has been sent directly to Nicole's email. She will get back to you soon!",
+        });
+      } else if (responseData.method === 'whatsapp') {
+        // Open WhatsApp with the pre-filled message
+        try {
+          // For mobile devices, try to open WhatsApp app
+          if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // Try WhatsApp app first
+            window.location.href = `whatsapp://send?phone=919845965597&text=${encodeURIComponent(responseData.whatsappMessage || '')}`;
+            
+            // Fallback to web if app doesn't open
+            setTimeout(() => {
+              window.open(responseData.whatsappUrl, '_blank');
+            }, 1000);
+          } else {
+            // For desktop, open WhatsApp Web
+            window.open(responseData.whatsappUrl, '_blank');
+          }
+        } catch (error) {
+          // Fallback to web version
+          window.open(responseData.whatsappUrl, '_blank');
+        }
+        
+        toast({
+          title: "Opening WhatsApp...",
+          description: "Your inquiry is ready to send! WhatsApp will open with your message pre-filled.",
+        });
+      }
+      
       form.reset();
     },
     onError: (error: any) => {
@@ -51,6 +81,8 @@ export default function ContactSection() {
       });
     }
   });
+
+
 
   const onSubmit = (data: InsertContactInquiry) => {
     submitInquiry.mutate(data);
@@ -141,9 +173,19 @@ export default function ContactSection() {
               <p className="text-gray-300 mb-4 text-sm">
                 Download Nicole's complete professional brochure, photos, and service details.
               </p>
-              <Button className="bg-champagne text-black hover:bg-yellow-500">
-                <Download className="mr-2" size={16} />
-                Download Media Kit
+              <Button 
+                className="bg-champagne text-black hover:bg-yellow-500"
+                asChild
+              >
+                <a 
+                  href="/Nicole Adams_The Voice of Connection.pdf" 
+                  download="Nicole Adams - The Voice of Connection.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Download className="mr-2" size={16} />
+                  Download Media Kit
+                </a>
               </Button>
             </div>
           </div>
