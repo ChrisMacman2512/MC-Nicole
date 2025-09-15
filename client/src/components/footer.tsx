@@ -72,7 +72,7 @@ export default function Footer() {
                 Instagram
               </a>
               <a 
-                href="https://youtube.com/@mcnicoleadams7762" 
+                href="https://www.youtube.com/@mcnicoleadams" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-champagne block"
@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; 2024 Nicole Adams - Professional Emcee. All rights reserved.</p>
+          <p>&copy; 2025 Nicole Adams - Professional Emcee. All rights reserved.</p>
         </div>
       </div>
     </footer>

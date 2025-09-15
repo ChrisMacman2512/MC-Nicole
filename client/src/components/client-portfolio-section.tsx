@@ -1,53 +1,106 @@
-import { Laptop, Heart, Building, Car, ShoppingBag, Plane } from "lucide-react";
+import { Laptop, Heart, Building, Car, ShoppingBag, Plane, GraduationCap, Shirt, Utensils, Briefcase, Home, MapPin } from "lucide-react";
+import LogoCarousel from "./logo-carousel";
 
 export default function ClientPortfolioSection() {
+  // Helper function to generate logo filenames
+  const generateLogos = (folderName: string, startNum: number, count: number) => {
+    return Array.from({ length: count }, (_, i) => 
+      `${folderName}_s01_p${String(startNum + i).padStart(2, '0')}.png`
+    );
+  };
+
+  // Define industry sectors with their corresponding logo folders and metadata
   const industries = [
     {
       icon: Laptop,
       title: "Technology & OEM Leaders",
-      clients: "Samsung, Infosys, Keysight Technologies",
+      description: "Leading technology companies and original equipment manufacturers",
+      folder: "Leaders_in_Technology_and_OEM",
       bgColor: "from-blue-900 to-blue-800",
-      iconColor: "text-blue-400"
+      iconColor: "text-blue-400",
+      logos: generateLogos("Leaders_in_Technology_and_OEM", 1, 47)
     },
     {
       icon: Heart,
       title: "Global Healthcare Leaders",
-      clients: "Manipal Hospitals, Cigna, Dozee",
+      description: "Premier healthcare institutions and medical technology companies",
+      folder: "Global_Healthcare_Leaders",
       bgColor: "from-red-900 to-red-800",
-      iconColor: "text-red-400"
+      iconColor: "text-red-400",
+      logos: generateLogos("Global_Healthcare_Leaders", 48, 17)
     },
     {
       icon: Building,
       title: "Financial Services Sector",
-      clients: "HSBC Canara Life Insurance",
+      description: "Leading banks, insurance companies, and financial institutions",
+      folder: "Financal_Services_Sector",
       bgColor: "from-green-900 to-green-800",
-      iconColor: "text-green-400"
+      iconColor: "text-green-400",
+      logos: generateLogos("Financal_Services_Sector", 65, 13)
     },
     {
       icon: Car,
       title: "Premium Automotive Brands",
-      clients: "Toyota, Skoda",
+      description: "Luxury and premium automotive manufacturers",
+      folder: "Premium_Automotive_Brand",
       bgColor: "from-purple-900 to-purple-800",
-      iconColor: "text-purple-400"
+      iconColor: "text-purple-400",
+      logos: generateLogos("Premium_Automotive_Brand", 78, 15)
     },
     {
       icon: ShoppingBag,
-      title: "E-commerce & Retail",
-      clients: "Flipkart, Amazon, Mangaldeep",
-      bgColor: "from-yellow-900 to-yellow-800",
-      iconColor: "text-yellow-400"
+      title: "Fashion & Lifestyle Industry",
+      description: "Leading fashion brands and lifestyle companies",
+      folder: "Fashion_Lifestyle_Industry",
+      bgColor: "from-pink-900 to-pink-800",
+      iconColor: "text-pink-400",
+      logos: generateLogos("Fashion_Lifestyle_Industry", 93, 26)
     },
     {
-      icon: Building,
-      title: "Enterprise & Construction",
-      clients: "Saint-Gobain, GE Vernova",
+      icon: Utensils,
+      title: "Food, Beverage & FMCG",
+      description: "Food and beverage companies and fast-moving consumer goods",
+      folder: "Food_Beverage_FMCG",
+      bgColor: "from-orange-900 to-orange-800",
+      iconColor: "text-orange-400",
+      logos: generateLogos("Food_Beverage_FMCG", 119, 12)
+    },
+    {
+      icon: GraduationCap,
+      title: "Education Sector Innovators",
+      description: "Educational institutions and learning technology companies",
+      folder: "Education_Sector_Innovator",
       bgColor: "from-indigo-900 to-indigo-800",
-      iconColor: "text-indigo-400"
+      iconColor: "text-indigo-400",
+      logos: generateLogos("Education_Sector_Innovator", 172, 10)
+    },
+    {
+      icon: Home,
+      title: "Real Estate & Construction",
+      description: "Real estate developers and construction companies",
+      folder: "Real_Estate_Connstruction_Sector",
+      bgColor: "from-amber-900 to-amber-800",
+      iconColor: "text-amber-400",
+      logos: generateLogos("Real_Estate_Connstruction_Sector", 131, 16)
+    },
+    {
+      icon: MapPin,
+      title: "Transport, Tourism & Entertainment",
+      description: "Transportation, tourism, and entertainment companies",
+      folder: "Transport_Tourism_Entertainment",
+      bgColor: "from-teal-900 to-teal-800",
+      iconColor: "text-teal-400",
+      logos: generateLogos("Transport_Tourism_Entertainment", 147, 8)
+    },
+    {
+      icon: Briefcase,
+      title: "International Exhibitions & Conferences",
+      description: "Global exhibition and conference organizers",
+      folder: "International_Exhibitions_ConferencesSummits",
+      bgColor: "from-cyan-900 to-cyan-800",
+      iconColor: "text-cyan-400",
+      logos: generateLogos("International_Exhibitions_ConferencesSummits", 155, 17)
     }
-  ];
-
-  const notableClients = [
-    "Samsung", "Toyota", "Flipkart", "Amazon", "Infosys", "GE Vernova"
   ];
 
   return (
@@ -62,28 +115,40 @@ export default function ClientPortfolioSection() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {industries.map((industry, index) => {
-            const IconComponent = industry.icon;
-            return (
-              <div key={index} className={`bg-gradient-to-br ${industry.bgColor} p-6 rounded-xl`}>
-                <IconComponent className={`${industry.iconColor} mb-4`} size={48} />
-                <h3 className="font-playfair text-xl font-bold mb-3 text-white">{industry.title}</h3>
-                <p className="text-gray-300 text-sm">{industry.clients}</p>
-              </div>
-            );
-          })}
+        {/* Industry Logo Carousels */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+          {industries.map((industry, index) => (
+            <LogoCarousel
+              key={index}
+              industry={industry.folder}
+              logos={industry.logos}
+              title={industry.title}
+              description={industry.description}
+              icon={industry.icon}
+              bgColor={industry.bgColor}
+              iconColor={industry.iconColor}
+            />
+          ))}
         </div>
         
-        {/* Notable Clients Logo Grid */}
-        <div className="bg-gray-900 p-8 rounded-2xl border border-dark">
-          <h3 className="font-playfair text-2xl font-bold text-center mb-8 text-white">Notable Clients</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
-            {notableClients.map((client, index) => (
-              <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-sm flex items-center justify-center h-16 font-semibold text-white border border-gray-700">
-                {client}
-              </div>
-            ))}
+        {/* Partnership Statistics */}
+        <div className="bg-gradient-to-r from-champagne/10 to-champagne/5 p-8 rounded-2xl border border-champagne/20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold text-champagne mb-2">200+</div>
+              <div className="text-white font-semibold">Client Companies</div>
+              <div className="text-gray-400 text-sm">Across 10+ Industries</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-champagne mb-2">500+</div>
+              <div className="text-white font-semibold">Events Hosted</div>
+              <div className="text-gray-400 text-sm">Corporate & Celebratory</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-champagne mb-2">10+</div>
+              <div className="text-white font-semibold">Years Experience</div>
+              <div className="text-gray-400 text-sm">Professional Excellence</div>
+            </div>
           </div>
         </div>
       </div>

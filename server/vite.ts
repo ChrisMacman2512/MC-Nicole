@@ -40,9 +40,25 @@ export async function setupVite(app: Express, server: Server) {
     appType: "custom",
   });
 
+  // Serve static files from client/public directory
+  const publicPath = path.resolve(import.meta.dirname, "..", "client", "public");
+  app.use(express.static(publicPath));
+
   app.use(vite.middlewares);
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
+
+    // Check if this is a static file request
+    if (url.startsWith('/ClientLogos/') || url.includes('.')) {
+      const filePath = path.resolve(publicPath, url.substring(1));
+      try {
+        if (fs.existsSync(filePath)) {
+          return res.sendFile(filePath);
+        }
+      } catch (e) {
+        // File doesn't exist, continue to next handler
+      }
+    }
 
     try {
       const clientTemplate = path.resolve(

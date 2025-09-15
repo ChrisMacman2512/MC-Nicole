@@ -102,6 +102,25 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
+            {/* Nicole's Professional Image */}
+            <div className="relative overflow-hidden rounded-xl shadow-2xl">
+              <img
+                src="/nicole-contact.jpg"
+                alt="Nicole Adams - Professional Emcee"
+                className="w-full h-96 md:h-[28rem] object-cover object-top"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                style={{
+                  aspectRatio: '4/3',
+                  objectFit: 'cover',
+                  objectPosition: 'center top'
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+            </div>
+            
             <div>
               <h3 className="font-playfair text-2xl font-bold mb-6 text-champagne">Get in Touch</h3>
               <div className="space-y-4">
@@ -133,60 +152,53 @@ export default function ContactSection() {
               </div>
             </div>
             
-            {/* Social Media */}
+            {/* Social Media & Media Kit */}
             <div>
               <h3 className="font-playfair text-2xl font-bold mb-6 text-champagne">Follow Nicole</h3>
-              <div className="flex space-x-6">
-                <a 
-                  href="https://www.instagram.com/nicole_adams_93/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-gray-800 p-4 rounded-lg hover:bg-champagne hover:text-black transition-colors"
+              <div className="flex flex-wrap gap-4 items-center">
+                <div className="flex space-x-6">
+                  <a 
+                    href="https://www.instagram.com/nicole_adams_93/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-gray-800 p-4 rounded-lg hover:bg-champagne hover:text-black transition-colors"
+                  >
+                    <Instagram size={24} />
+                  </a>
+                  <a 
+                    href="https://www.youtube.com/@mcnicoleadams" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-gray-800 p-4 rounded-lg hover:bg-champagne hover:text-black transition-colors"
+                  >
+                    <Youtube size={24} />
+                  </a>
+                  <a 
+                    href="https://wa.me/919845965597" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-gray-800 p-4 rounded-lg hover:bg-champagne hover:text-black transition-colors"
+                  >
+                    <MessageSquare size={24} />
+                  </a>
+                </div>
+                
+                {/* Media Kit Download Button */}
+                <Button 
+                  className="bg-champagne text-black hover:bg-yellow-500 flex items-center gap-2"
+                  asChild
                 >
-                  <Instagram size={24} />
-                </a>
-                <a 
-                  href="https://youtube.com/@mcnicoleadams7762" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-gray-800 p-4 rounded-lg hover:bg-champagne hover:text-black transition-colors"
-                >
-                  <Youtube size={24} />
-                </a>
-                <a 
-                  href="https://wa.me/919845965597" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-gray-800 p-4 rounded-lg hover:bg-champagne hover:text-black transition-colors"
-                >
-                  <MessageSquare size={24} />
-                </a>
+                  <a 
+                    href="/Nicole Adams_The Voice of Connection.pdf" 
+                    download="Nicole Adams - The Voice of Connection.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Download size={16} />
+                    Media Kit
+                  </a>
+                </Button>
               </div>
-              <p className="text-gray-400 text-sm mt-4">
-                "Slaying stages, serving looks, flavors & match-day opinions. Anchor/Emcee | Culinary Storyteller🍽️| Sports Girl Vibes ⚽️ Bangalore Let's collaborate!"
-              </p>
-            </div>
-            
-            {/* Media Kit Download */}
-            <div className="bg-gray-800/50 p-6 rounded-xl">
-              <h3 className="font-playfair text-xl font-bold mb-4 text-champagne">Professional Media Kit</h3>
-              <p className="text-gray-300 mb-4 text-sm">
-                Download Nicole's complete professional brochure, photos, and service details.
-              </p>
-              <Button 
-                className="bg-champagne text-black hover:bg-yellow-500"
-                asChild
-              >
-                <a 
-                  href="/Nicole Adams_The Voice of Connection.pdf" 
-                  download="Nicole Adams - The Voice of Connection.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Download className="mr-2" size={16} />
-                  Download Media Kit
-                </a>
-              </Button>
             </div>
           </div>
           

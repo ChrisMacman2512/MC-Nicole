@@ -11,7 +11,7 @@ A sophisticated professional portfolio website for Nicole Adams, a multilingual 
 - **Client Portfolio**: Industry partnerships with major brands like Samsung, Toyota, Flipkart, Amazon, Infosys
 
 ### Interactive Video Portfolio
-- **YouTube Integration**: Real video embeds from Nicole's channel (@mcnicoleadams7762)
+- **YouTube Integration**: Real video embeds from Nicole's channel (@mcnicoleadams)
 - **Categorized Content**: Corporate events, product launches, awards ceremonies, weddings
 - **Dynamic Filtering**: Easy navigation between different event types
 - **Responsive Video Players**: Optimized for both regular videos and YouTube Shorts
@@ -208,7 +208,7 @@ A sophisticated professional portfolio website for Nicole Adams, a multilingual 
 ## 🌐 Social Media Integration
 
 - **Instagram**: [@nicole_adams_93](https://www.instagram.com/nicole_adams_93/)
-- **YouTube**: [@mcnicoleadams7762](https://youtube.com/@mcnicoleadams7762)
+- **YouTube**: [@mcnicoleadams](https://www.youtube.com/@mcnicoleadams)
 - **WhatsApp**: Direct booking communication
 - **Email**: nicoleadams927@gmail.com
 
@@ -255,7 +255,7 @@ This project is proprietary and confidential. All rights reserved by Nicole Adam
 - 📧 Email: nicoleadams927@gmail.com
 - 📱 Phone/WhatsApp: +91 9845965597
 - 📍 Location: Bangalore, India
-- 🎬 YouTube: [@mcnicoleadams7762](https://youtube.com/@mcnicoleadams7762)
+- 🎬 YouTube: [@mcnicoleadams](https://www.youtube.com/@mcnicoleadams)
 - 📸 Instagram: [@nicole_adams_93](https://www.instagram.com/nicole_adams_93/)
 
 ---
